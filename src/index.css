@@ -5,9 +5,91 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #b0e0e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.home-container {
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-heading {
+  margin-top: 0;
+  font-size: 2.5rem;
+}
+
+.home-description {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+a {
+  color: #0074d9;
+  /* Link color */
+  text-decoration: none;
+}
+
+.hobby-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.hobby-name {
+  margin-right: 5px;
+}
+
+.hobby-time {
+  margin-left: 5px;
+  color: #888;
+}
+
+.delete-button {
+  background-color: #ff4136;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hobby-list {
+  border: 5px solid white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.hobby-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid white;
+}
+
+.hobby-name {
+  margin-right: 10px;
+}
+
+.delete-button {
+  background-color: #ff4136;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  /* Adjust the height as needed */
 }
