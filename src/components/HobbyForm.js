@@ -14,7 +14,8 @@ const HobbyForm = ({ addHobby, hobbiesList }) => {
             setErrorMessage('Error: Hobby with the same name already exists.');
             return;
         }
-        // save hobby to local
+
+        // Save hobby to local
         const newHobby = {
             name: hobbyName,
             days: hobbyDays,
@@ -39,13 +40,11 @@ const HobbyForm = ({ addHobby, hobbiesList }) => {
         setErrorMessage('');
     };
 
-    const handleDayCheckboxChange = (day) => {
-        if (hobbyDays.includes(day)) {
-            // Remove the day if it's already selected
-            setHobbyDays(hobbyDays.filter((selectedDay) => selectedDay !== day));
+    const handleDayCheckboxChange = (dayNumber) => {
+        if (hobbyDays.includes(dayNumber)) {
+            setHobbyDays(hobbyDays.filter((day) => day !== dayNumber));
         } else {
-            // Add the day if it's not selected
-            setHobbyDays([...hobbyDays, day]);
+            setHobbyDays([...hobbyDays, dayNumber]);
         }
     };
 
@@ -61,12 +60,12 @@ const HobbyForm = ({ addHobby, hobbiesList }) => {
             />
             <div>
                 <p>Select Days:</p>
-                {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
+                {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day, index) => (
                     <label key={day}>
                         <input
                             type="checkbox"
-                            checked={hobbyDays.includes(day)}
-                            onChange={() => handleDayCheckboxChange(day)}
+                            checked={hobbyDays.includes(index)}
+                            onChange={() => handleDayCheckboxChange(index)}
                         />
                         {day}
                     </label>
