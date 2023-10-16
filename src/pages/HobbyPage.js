@@ -2,7 +2,7 @@ import React from 'react';
 import HobbyForm from '../components/HobbyForm';
 import moment from 'moment';
 
-const HobbyPromptPage = ({ onHobbiesChange, currentHobbies }) => {
+const HobbyPage = ({ onHobbiesChange, currentHobbies }) => {
 
     const handleAddHobby = (newHobby) => {
         const updatedHobbies = [...currentHobbies, newHobby];
@@ -38,4 +38,4 @@ const HobbyPromptPage = ({ onHobbiesChange, currentHobbies }) => {
     );
 };
 
-export default HobbyPromptPage;
+export default HobbyPage;

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import CalendarPage from './components/CalendarPage';
-import HobbyPromptPage from './pages/HobbyPromptPage';
+import HomePage from './pages/HomePage';
+import CalendarPage from './pages/CalendarPage';
+import HobbyPage from './pages/HobbyPage';
 import SocialPage from './pages/SocialPage';
 import FriendCalendarPage from './pages/FriendCalendarPage';
 
@@ -27,7 +27,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/calendar" element={<CalendarPage hobbies={hobbies} />} />
-                <Route path="/hobby-prompt" element={<HobbyPromptPage onHobbiesChange={handleHobbiesChange} currentHobbies={hobbies} />} />
+                <Route path="/hobby-prompt" element={<HobbyPage onHobbiesChange={handleHobbiesChange} currentHobbies={hobbies} />} />
                 <Route path="/social" element={<SocialPage />} />
                 <Route path="/friend-calendar/:friendId" element={<FriendCalendarPage />} />
             </Routes>

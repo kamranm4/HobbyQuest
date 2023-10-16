@@ -12,20 +12,20 @@ body {
   min-height: 100vh;
 }
 
-.home-container {
+.home-content {
   text-align: center;
   padding: 20px;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.home-heading {
+.home-content h1 {
   margin-top: 0;
   font-size: 2.5rem;
 }
 
-.home-description {
+.home-content p {
   font-size: 1.2rem;
   color: #333;
 }
@@ -33,6 +33,22 @@ body {
 a {
   color: #0074d9;
   /* Link color */
+  text-decoration: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.home-button {
+  background-color: white;
+  color: #0074d9;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 0 10px;
   text-decoration: none;
 }
 
