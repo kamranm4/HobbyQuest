@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import CalendarPage from './components/CalendarPage';
-import HobbyPromptPage from './pages/HobbyPromptPage';
+import HomePage from './pages/HomePage';
+import CalendarPage from './pages/CalendarPage';
+import HobbyPage from './pages/HobbyPage';
 import SocialPage from './pages/SocialPage';
 import FriendCalendarPage from './pages/FriendCalendarPage';
 
 const App = () => {
-    // Define the addHobby function
-    const addHobby = (hobby) => {
-        // Implement the logic to add the hobby to local storage or perform other actions
-        // For now, let's log the hobby to the console
-        console.log('Adding hobby:', hobby);
+    const [hobbies, setHobbies] = useState([]); // Maintain a state for hobbies
+
+    // Load hobbies from localStorage when the component mounts
+    useEffect(() => {
+        const storedHobbies = localStorage.getItem('hobbies');
+        if (storedHobbies) {
+            setHobbies(JSON.parse(storedHobbies));
+        }
+    }, []);
+
+    const handleHobbiesChange = (updatedHobbies) => {
+        setHobbies(updatedHobbies);
+        localStorage.setItem('hobbies', JSON.stringify(updatedHobbies));
     };
 
     return (
         <Router>
             <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/calendar" element={<CalendarPage />} />
-                {/* Pass the addHobby function to HobbyPromptPage */}
-                <Route path="/hobby-prompt" element={<HobbyPromptPage addHobby={addHobby} />} />
+                <Route path="/calendar" element={<CalendarPage hobbies={hobbies} />} />
+                <Route path="/hobby-prompt" element={<HobbyPage onHobbiesChange={handleHobbiesChange} currentHobbies={hobbies} />} />
                 <Route path="/social" element={<SocialPage />} />
                 <Route path="/friend-calendar/:friendId" element={<FriendCalendarPage />} />
             </Routes>
@@ -29,5 +36,3 @@ const App = () => {
 };
 
 export default App;
-
-

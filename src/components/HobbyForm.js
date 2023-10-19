@@ -14,7 +14,8 @@ const HobbyForm = ({ addHobby, hobbiesList }) => {
             setErrorMessage('Error: Hobby with the same name already exists.');
             return;
         }
-        // save hobby to local
+
+        // Save hobby to local
         const newHobby = {
             name: hobbyName,
             days: hobbyDays,
@@ -39,59 +40,63 @@ const HobbyForm = ({ addHobby, hobbiesList }) => {
         setErrorMessage('');
     };
 
-    const handleDayCheckboxChange = (day) => {
-        if (hobbyDays.includes(day)) {
-            // Remove the day if it's already selected
-            setHobbyDays(hobbyDays.filter((selectedDay) => selectedDay !== day));
+    const handleDayCheckboxChange = (dayNumber) => {
+        if (hobbyDays.includes(dayNumber)) {
+            setHobbyDays(hobbyDays.filter((day) => day !== dayNumber));
         } else {
-            // Add the day if it's not selected
-            setHobbyDays([...hobbyDays, day]);
+            setHobbyDays([...hobbyDays, dayNumber]);
         }
     };
 
     return (
-        <div>
+        <div className="hobby-form-container">
             <h1>Enter Hobby Here</h1>
-            {/* Add form to prompt hobby details here */}
-            <input
-                type="text"
-                value={hobbyName}
-                onChange={(e) => setHobbyName(e.target.value)}
-                placeholder="Hobby Name"
-            />
-            <div>
-                <p>Select Days:</p>
-                {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day) => (
-                    <label key={day}>
-                        <input
-                            type="checkbox"
-                            checked={hobbyDays.includes(day)}
-                            onChange={() => handleDayCheckboxChange(day)}
-                        />
-                        {day}
-                    </label>
-                ))}
+            <div className="form-input">
+                <label>Hobby Name: </label>
+                <input
+                    type="text"
+                    value={hobbyName}
+                    onChange={(e) => setHobbyName(e.target.value)}
+                    placeholder="Hobby Name"
+                />
             </div>
-            {/* Add other inputs for hobbyDays and hobbyFrequency */}
-            <div>
-                <label>Start Time:</label>
+            <div className="form-input">
+                <label>Select Days:</label>
+                <div className="day-checkboxes">
+                    {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day, index) => (
+                        <label key={day}>
+                            <input
+                                type="checkbox"
+                                checked={hobbyDays.includes(index)}
+                                onChange={() => handleDayCheckboxChange(index)}
+                            />
+                            {day}
+                        </label>
+                    ))}
+                </div>
+            </div>
+            <div className="form-input">
+                <label>Start Time: </label>
                 <input
                     type="time"
                     value={hobbyStartTime}
                     onChange={(e) => setHobbyStartTime(e.target.value)}
                 />
             </div>
-            <div>
-                <label>Finish Time:</label>
+            <div className="form-input">
+                <label>Finish Time:  </label>
                 <input
                     type="time"
                     value={hobbyFinishTime}
                     onChange={(e) => setHobbyFinishTime(e.target.value)}
                 />
             </div>
-            <button onClick={handleAddHobby}>Add Hobby</button>
+            <div className="form-input">
+                <button onClick={handleAddHobby}>Add Hobby</button>
+            </div>
             {errorMessage && <p>{errorMessage}</p>}
         </div>
+
     );
 };
 

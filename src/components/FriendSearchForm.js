@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-// import User from '../models/user';
+// import User from '../models/user'; unused since mongoose
 
 const FriendSearchForm = () => {
     const [searchText, setSearchText] = useState('');
-    // const [searchResults, setSearchResults] = useState([]);
+    // const [searchResults, setSearchResults] = useState([]); unused since mongoose
 
     const handleSearch = () => {
         // Perform the search using Mongoose
