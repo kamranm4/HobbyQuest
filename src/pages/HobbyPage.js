@@ -15,15 +15,17 @@ const HobbyPage = ({ onHobbiesChange, currentHobbies }) => {
     };
 
     return (
-        <div>
-            <h1>Hobby Form</h1>
+        <div className="hobby-container">
             <HobbyForm addHobby={handleAddHobby} hobbiesList={currentHobbies} />
             {/* Display the list of hobbies */}
             <ul>
                 {currentHobbies.map((hobby, index) => (
                     <li key={index} className="hobby-list-item">
                         <div>
-                            <span className="hobby-name">{hobby.name}</span>
+                            <span className="hobby-name">
+                                {hobby.name}
+                                {' | '}
+                            </span>
                             <span className="hobby-details">
                                 {hobby.days.map(day => moment().day(day).format('ddd')).join(', ')}
                                 {' | '}

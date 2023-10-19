@@ -8,7 +8,7 @@ const HomePage = () => {
             <div className="home-content">
                 <h1>Home Page</h1>
                 <p>
-                    This is a collaborative scheduling app where you can set time-based goals for your hobbies
+                    This is a collaborative scheduling app where you can schedule your hobbies
                     and activities. Start by adding your hobbies on the Hobby Prompt
                     page or view your schedule on the Calendar page.
                 </p>
